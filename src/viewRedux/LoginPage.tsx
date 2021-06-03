@@ -1,4 +1,4 @@
-import { useAppDispatch, RootState } from "../../store/store";
+import { useAppDispatch, RootState } from "../store/store";
 import { status, user } from "../reducers/LoginSlice";
 import { useSelector } from "react-redux";
 

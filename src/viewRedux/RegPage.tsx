@@ -1,4 +1,4 @@
-import { useAppDispatch, RootState } from "../../store/store";
+import { useAppDispatch, RootState } from "../store/store";
 import { add } from "../reducers/RegSlice";
 import { useSelector } from "react-redux";
 
