@@ -3,20 +3,20 @@ import { fetchComments } from "../utils/utils";
 import { Comments } from "../types/commentType";
 import { RootState } from "../store/store";
 //ogni slice deve definire un tipo per il suo stato iniziale => create slice riesce a impostare  il giusto tipo di stato in ogni caso del reducer
-type CommentsState = {
+export type CommentsState = {
   status: "loading" | "idle";
   error: string | null;
-  list: Comments[];
+  list: [Comments[]];
 };
 
 const initialState = {
-  list: [],
+  list: [[]],
   error: null,
   status: "idle",
 } as CommentsState;
 
 export const selectStatus = (state: RootState) => state.commentsReducer.status;
-
+export const selectItems = (state: RootState) => state.commentsReducer.list;
 export const commentSlice = createSlice({
   name: "comments",
   initialState: initialState,
@@ -37,7 +37,15 @@ export const commentSlice = createSlice({
   }, */
   extraReducers: {
     [fetchComments.fulfilled.toString()]: (state, action) => {
+      //state.list = [];
       state.list.push(action.payload);
+      state.status = "idle";
+    },
+    [fetchComments.pending.toString()]: (state, action) => {
+      state.status = "loading";
+    },
+    [fetchComments.rejected.toString()]: (state, action) => {
+      state.status = "idle";
     },
   },
 });
