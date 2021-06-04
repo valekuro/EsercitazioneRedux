@@ -37,7 +37,7 @@ export const commentSlice = createSlice({
   }, */
   extraReducers: {
     [fetchComments.fulfilled.toString()]: (state, action) => {
-      //state.list = [];
+      state.list.splice(0, state.list.length);
       state.list.push(action.payload);
       state.status = "idle";
     },

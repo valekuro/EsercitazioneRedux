@@ -1,8 +1,8 @@
 interface TodoInitialStateReg {
-  addElement: string[];
+  elements: string[];
 }
 export const initialState: TodoInitialStateReg = {
-  addElement: [],
+  elements: [],
 };
 
 export default initialState;

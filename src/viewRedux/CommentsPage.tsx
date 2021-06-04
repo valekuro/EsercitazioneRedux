@@ -21,7 +21,7 @@ export const LoadComments = () => {
       </button>
       {state ? (
         <ul>
-          {data.map((item: Comments[], key: number) => {
+          {data.map((item: Comments[]) => {
             return item.map((i: Comments, k: number) => {
               console.log(i);
               return (

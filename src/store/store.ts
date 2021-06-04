@@ -6,7 +6,7 @@ import todoReducer from '../reducers/TodoReducer';
 
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
-declare const window: any;
+//declare const window: any;
 export const store = configureStore({
   reducer: {
     loginReducer,
